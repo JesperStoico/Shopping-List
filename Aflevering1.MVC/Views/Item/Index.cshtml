@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Aflevering1.MVC.Models.Item>
+
+@{
+    ViewData["Title"] = "Shopping list index";
+}
+
+<h1>Indkøbsliste</h1>
+
+<p>
+    <a asp-action="Create">Tilføj en vare til listen</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Vare @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                Vare navn
+            </th>
+            <th>
+                Antal
+            </th>
+            <th>
+                Enhed
+            </th>
+            <th>
+                Placering
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Placement)
+            </td>
+            <td>
+                    @Html.ActionLink("Ændre", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Fjern", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

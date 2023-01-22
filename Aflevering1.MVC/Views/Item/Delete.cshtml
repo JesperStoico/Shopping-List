@@ -1,0 +1,44 @@
+﻿@model Aflevering1.MVC.Models.Item
+
+@{
+    ViewData["Title"] = "Fjern Vare";
+}
+
+<h1>Fjern vare fra listen</h1>
+
+<h3>Er du sikker på du vil fjerne denne vare?</h3>
+<div>
+    <h4>Vare</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Vare Id
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            Navn
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            Antal
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+        <dt class = "col-sm-2">
+            Placering
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Placement)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Fjern" class="btn btn-danger" /> |
+        <a asp-action="Index">Tilbage til indkøbslisten</a>
+    </form>
+</div>
